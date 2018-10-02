@@ -32,7 +32,7 @@
 #
 
 import argparse, os
-from subprocess import call, PIPE, Popen
+from subprocess import PIPE, Popen
 from datetime import datetime
 
 __version__ = 1.0
@@ -64,13 +64,6 @@ def get_backup(backup_pre,f_path):
 
 def get_date():
     return(datetime.now().strftime('%Y%m%d-%H%M'))
-
-def checkDestination(host):
-    ping_result = call(['ping','-c1','-w1',host],stdout=PIPE,stderr=PIPE)
-    if ping_result == 0:
-        return True
-    else:
-        return False
 
 def main(u_args):
     #Main function
