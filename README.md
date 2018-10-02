@@ -7,7 +7,7 @@ This script will perform backups for portions of the CVP node.  This can be util
 Copy the `autoBackup.py` file to the `root` users home directory on the CVP node for a single node, or the primary node in a cluster.
 
 Below are the parameters needed for the script to run: 
-- `--objects` defaults to `configlets` the possible options are: `configlets`, `containers`, `devices`, `images`, `imagebundles`, `roles`, `users`, `themes`, `aaa`, `changecontrol`
+- `--objects` defaults to `configlets` the possible options are: `configlets`, `containers`, `devices`, `images`, `imagebundles`, `roles`, `users`, `themes`, `aaa`, `changecontrol`, `certs`, `trustedcerts`
 - `--user` (Required) An authorized user for CloudVision
 - `--password` (Required) The password for the above authorized user
 - `--limit` (Optional) This parameter limits the amount of backups are retained on CVP in `/data/cvpbackup`

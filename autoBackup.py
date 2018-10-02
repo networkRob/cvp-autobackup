@@ -115,7 +115,7 @@ def main(u_args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-o", "--objects", type=str, default='configlets', nargs="*", choices=["configlets","containers","devices","images","imagebundles","roles","users","themes","aaa","changecontrol"], help="Specify which aspects to backup/restore", required=False)
+    parser.add_argument("-o", "--objects", type=str, default='configlets', nargs="*", choices=["configlets","containers","devices","images","imagebundles","roles","users","themes","aaa","changecontrol","certs","trustedcerts"], help="Specify which aspects to backup/restore", required=False)
     parser.add_argument("-u", "--user", type=str, default=None, help="Enter a valid user for CVP.", required=True)
     parser.add_argument("-p", "--password", type=str, default=None, help="Enter the password for the user.", required=True)
     parser.add_argument("-l", "--limit", type=int, default=None, help="Enter max amount of files to retain", required=False)
