@@ -2,6 +2,8 @@
 
 This script will perform backups for portions of the CVP node.  This can be utilized as a cronjob within CVP to be scheduled to take backups at a certain time for the specified data objects.
 
+Tested on version CVP-2018.1.4
+
 #### Setup
 
 Copy the `autoBackup.py` file to the `root` users home directory on the CVP node for a single node, or the primary node in a cluster.

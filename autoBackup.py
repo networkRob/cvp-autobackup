@@ -70,8 +70,6 @@ def main(u_args):
     # Add device hostname to base_cmds
     hostname = get_hostname()
     base_cmds.append(hostname)
-    # Get current date/time
-    cur_date = get_date()
     # Add user and pwd to base_cmds
     base_cmds.append('--user')
     base_cmds.append(u_args.user)
@@ -80,7 +78,7 @@ def main(u_args):
     # Iterate through each option
     for item in u_args.objects:
         obj_cmd = []
-        backup_file = cvp_data + '/' + hostname + '-' + item + '-' + cur_date + '.tar.gz'
+        backup_file = cvp_data + '/' + hostname + '-' + item + '-' + get_date() + '.tar.gz'
         # Create custom backup comand list
         obj_cmd += base_cmds + ['--action','backup','--objects',item,'--tarFile',backup_file]
         # If a backup limit has been specified
