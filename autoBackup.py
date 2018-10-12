@@ -28,7 +28,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # By Rob Martin, Arista Networks 2018
-# rmartin@arista.com
+# robmartin@arista.com
 #
 
 import argparse, os
@@ -36,7 +36,7 @@ from subprocess import PIPE, Popen
 from datetime import datetime
 
 __version__ = 1.0
-__author__ = 'rmartin@arista.com'
+__author__ = 'robmartin@arista.com'
 
 cvp_data = '/data/cvpbackup'
 base_cmds = ['/cvpi/tools/./cvptool.py','--host']
