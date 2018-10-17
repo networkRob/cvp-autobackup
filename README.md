@@ -1,5 +1,8 @@
 ### CVP AutoBackup
+#### Version 1.1
+Added output messaging in case there is an error with not enough diskspace on the `/` directory to create a temporary backup file.
 
+#### Version 1.0
 This script will perform backups for portions of the CVP node.  This can be utilized as a cronjob within CVP to be scheduled to take backups at a certain time for the specified data objects.
 
 Tested on version CVP-2018.1.4
