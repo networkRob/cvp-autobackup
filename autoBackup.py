@@ -35,7 +35,7 @@ import argparse, os
 from subprocess import PIPE, Popen
 from datetime import datetime
 
-__version__ = 1.0
+__version__ = 1.1
 __author__ = 'robmartin@arista.com'
 
 cvp_data = '/data/cvpbackup'
@@ -86,7 +86,7 @@ def main(u_args):
             # Check to see if the limit has been reached
             current_count = count_files(hostname + '-' + item,cvp_data)
             if  current_count >= u_args.limit:
-                print('Already %s %s backups, which is over the %s limit.'%(current_count,item,u_args.limit))
+                print('Already %s %s backups, which put the backups over the %s limit.'%(current_count,item,u_args.limit))
                 obj_backup = get_backup(item,cvp_data)
                 obj_backup.sort()
                 for old_ind in range(0,current_count - (u_args.limit-1)):
@@ -99,6 +99,14 @@ def main(u_args):
             print("Backing up file: %s"%backup_file)
             b_cmd = Popen(obj_cmd,stdout=PIPE,stderr=PIPE)
             print(b_cmd.stdout.read())
+            err_msg = b_cmd.stderr.read()
+            # Adding error check for when the '/' directory does not have enough space to create tmp backup file
+            # before writing to final destination
+            if err_msg:
+                if 'No space left on device' in err_msg:
+                    print('ERROR! not enough space availble on "/" to create temporary backup file')
+                else:
+                    print(err_msg)
         except:
             print(b_cmd.stderr.read())
             
